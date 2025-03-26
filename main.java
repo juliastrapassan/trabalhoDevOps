@@ -9,6 +9,6 @@ public class main {
 
         System.out.println("Olá, " + nome + "! Bem-vindo ao programa.");
 
-        scanner.close();
+        scanner.close(); 
     }
 }
