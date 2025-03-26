@@ -8,15 +8,25 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-
-      - name: Check out repository code
+      # Checkout do código
+      - name: Checkout repository code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Super-linter
-        uses: super-linter/super-linter@v7.3.0 # x-release-please-version
+      # Configurar Java (caso esteja usando Java)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # Rodar Super Linter
+      - name: Run Super-linter
+        uses: super-linter/super-linter@v7.3.0
         env:
-          # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Rodar testes com Maven (caso tenha um projeto Java com Maven)
+      - name: Run Maven Tests
+        run: mvn test
