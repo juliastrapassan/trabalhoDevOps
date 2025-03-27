@@ -9,6 +9,7 @@ public class main {
 
         if (nome.isEmpty()) {
             System.out.println("Nome inválido! Reinicie o programa e digite um nome válido.");
+            scanner.close();
             return;
         }
 
@@ -26,38 +27,54 @@ public class main {
                     contarCaracteresNome(nome);
                     break;
                 case 3:
+                    inverterNome(nome);
+                    break;
+                case 4:
                     System.out.println("Saindo do programa. Até logo, " + nome + "!");
                     break;
                 default:
                     System.out.println("Opção inválida! Tente novamente.");
             }
-        } while (opcao != 3);
+        } while (opcao != 4);
 
         scanner.close();
     }
 
-    // Função para exibir um menu e capturar a escolha do usuário
     public static int exibirMenu(Scanner scanner) {
         System.out.println("\nEscolha uma opção:");
         System.out.println("1 - Somar dois números");
         System.out.println("2 - Contar caracteres do seu nome");
-        System.out.println("3 - Sair");
+        System.out.println("3 - Inverter seu nome");
+        System.out.println("4 - Sair");
         System.out.print("Opção: ");
+
+        while (!scanner.hasNextInt()) {
+            System.out.println("Entrada inválida! Digite um número.");
+            scanner.next();
+        }
         return scanner.nextInt();
     }
 
-    // Função para somar dois números inseridos pelo usuário
     public static void somarNumeros(Scanner scanner) {
-        System.out.print("Digite o primeiro número: ");
-        double num1 = scanner.nextDouble();
-        System.out.print("Digite o segundo número: ");
-        double num2 = scanner.nextDouble();
-        double resultado = num1 + num2;
-        System.out.println("A soma de " + num1 + " + " + num2 + " = " + resultado);
+        try {
+            System.out.print("Digite o primeiro número: ");
+            double num1 = scanner.nextDouble();
+            System.out.print("Digite o segundo número: ");
+            double num2 = scanner.nextDouble();
+            double resultado = num1 + num2;
+            System.out.println("A soma de " + num1 + " + " + num2 + " = " + resultado);
+        } catch (Exception e) {
+            System.out.println("Entrada inválida! Certifique-se de digitar números.");
+            scanner.nextLine();
+        }
     }
 
-    // Função para contar quantos caracteres tem o nome do usuário
     public static void contarCaracteresNome(String nome) {
         System.out.println("Seu nome tem " + nome.length() + " caracteres.");
+    }
+
+    public static void inverterNome(String nome) {
+        String nomeInvertido = new StringBuilder(nome).reverse().toString();
+        System.out.println("Seu nome invertido é: " + nomeInvertido);
     }
 }
