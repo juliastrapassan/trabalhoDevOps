@@ -16,7 +16,7 @@ public class main {
 
         int opcao;
         do {
-            opcao = exibirMenu(scanner);
+            opcao = exibirMenu(scanner); 
 
             switch (opcao) {
                 case 1:
