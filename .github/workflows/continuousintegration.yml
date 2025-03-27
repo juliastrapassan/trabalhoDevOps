@@ -1,0 +1,23 @@
+ame: Continuous Integration
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '23'  # ou outra versão que você use
+
+      - name: Run Checkstyle
+        run: |
+          curl -O https://repo1.maven.org/maven2/com/puppycrawl/tools/checkstyle/9.3/checkstyle-9.3-all.jar
+          java -jar checkstyle-9.3-all.jar -c /google_checks.xml src/**/*.java
