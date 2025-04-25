@@ -13,7 +13,7 @@ public class Main {
             return;
         }
 
-        System.out.println("Olá, " + nome + "! Bem-vindo ao programa.");
+        System.out.println("Olá, " + nome + "! Bem-vindo ao programa!");
 
         int opcao;
         do {
