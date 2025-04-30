@@ -15,7 +15,7 @@
 
     <!-- Dependências -->
     <dependencies>
-        <!-- Dependência para o JUnit 5 versão 5.8.2 -->
+        <!-- Dependência para o JUnit 5 versão 5.7.1 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
