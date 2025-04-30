@@ -1,5 +1,5 @@
 FROM openjdk:21
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
-RUN javac Main.java
-CMD ["java", "Main"]
+RUN javac src.Main.java
+CMD ["java", "src.Main"]
