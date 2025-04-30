@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Digite seu nome: ");
+        System.out.print("Olá, digite seu nome: ");
         String nome = scanner.nextLine().trim();
 
         if (nome.isEmpty()) {
