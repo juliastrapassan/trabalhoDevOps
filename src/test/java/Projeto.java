@@ -1,7 +1,8 @@
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
 
-public class teste {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class Projeto {
 
     @Test
     public void testContarCaracteresNome() {
